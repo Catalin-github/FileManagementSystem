@@ -1,0 +1,5 @@
+export const LOGIN_REQUEST = "LOGIN_REQUEST";
+export const LOGIN_SUCCES = "LOGIN_SUCCES";
+export const LOGIN_ERROR = "LOGIN_ERROR";
+export const EDIT_PROFILE = "EDIT PROFILE";
+export const REGISTER_SUCCESS = "REGISTER_SUCCESS";

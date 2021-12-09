@@ -1,0 +1,16 @@
+.list-video{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center; 
+    margin-bottom: 21px;
+
+}
+
+.details-video{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+}
