@@ -65,7 +65,7 @@ class Register extends Component {
 			<div>
 				<I18nProvider locale={this.props.locales}>
 					<div>
-						<div>
+						<div style={{ textAlign: 'center' }}>
 							<button onClick={() => this.props.setLocale(LOCALES.ENGLISH)}>
 								English
 							</button>{' '}
@@ -78,87 +78,119 @@ class Register extends Component {
 								Romanian
 							</button>{' '}
 						</div>
-						<form onSubmit={this.handleSubmit}>
+						<div>
+							<h3>
+								<Link style={{ textDecoration: 'none' }} to='/'>
+									{' '}
+									{translate('back-home')}{' '}
+								</Link>
+							</h3>
+						</div>
+						<form style={{ textAlign: 'center' }} onSubmit={this.handleSubmit}>
 							<h3>{translate('register-')}</h3>
 
-							<div>
+							<div
+								style={{
+									display: 'flex',
+									flexDirection: 'column',
+									alignItems: 'center',
+								}}>
 								<label htmlFor='email'>{translate('e-mail')}</label>
 								<input
 									type='email'
 									name='email'
-									placeholder='Email'
 									required
 									onChange={this.handleChange}
+									style={{ marginBottom: '10px' }}
 								/>
 							</div>
-							<div>
+							<div
+								style={{
+									display: 'flex',
+									flexDirection: 'column',
+									alignItems: 'center',
+								}}>
 								<label htmlFor='password_confirm'>
 									{translate('pass-word')}
 								</label>
 								<input
+									style={{ marginBottom: '10px' }}
 									type='password'
-									placeholder='Confirm Password'
 									name='password_confirm'
 									required
 									onChange={this.handleChange}
 								/>
 							</div>
-							<div>
+							<div
+								style={{
+									display: 'flex',
+									flexDirection: 'column',
+									alignItems: 'center',
+								}}>
 								<label htmlFor='password'>{translate('pass-word')}</label>
 								<input
 									type='password'
-									placeholder='Password'
 									name='password'
+									style={{ marginBottom: '10px' }}
 									onChange={this.handleChange}
 								/>
 							</div>
-							<div>
-								<label htmlFor='firstName'>
-									{translate('first-name')}
-									{/* , { name:<code>Samuel</code> } */}
-								</label>
+							<div
+								style={{
+									display: 'flex',
+									flexDirection: 'column',
+									alignItems: 'center',
+								}}>
+								<label htmlFor='firstName'>{translate('first-name')}</label>
 								<input
+									style={{ marginBottom: '10px' }}
 									type='text'
 									name='firstName'
-									placeholder='First Name'
 									required
 									onChange={this.handleChange}
 								/>
 							</div>
-							<div>
+							<div
+								style={{
+									display: 'flex',
+									flexDirection: 'column',
+									alignItems: 'center',
+								}}>
 								<label htmlFor='lastName'>{translate('last-name')}</label>
 								<input
+									style={{ marginBottom: '10px' }}
 									type='text'
 									name='lastName'
-									placeholder='Last Name'
 									required
 									onChange={this.handleChange}
 								/>
 							</div>
-							<div>
+							<div
+								style={{
+									display: 'flex',
+									flexDirection: 'column',
+									alignItems: 'center',
+								}}>
 								<label htmlFor='phone'>{translate('phone-number')}</label>
 								<input
+									style={{ marginBottom: '10px' }}
 									type='text'
 									name='phone'
-									placeholder='Phone'
 									onChange={this.handleChange}
 								/>
 							</div>
-							<button type='submit'>{translate('register-')}</button>
+							<button
+								style={{ marginBottom: '19px', width: '150px' }}
+								type='submit'>
+								{translate('register-')}
+							</button>
 						</form>
 					</div>
-					<div>
+					<div style={{ textAlign: 'center' }}>
 						<h4>
-							{' '}
-							You already have an account? <Link to='/login'>sign-in</Link>{' '}
+							{translate('have-acc')}{' '}
+							<Link to='/login'>{translate('sign-up')}</Link>
 						</h4>
-					</div>
-					<div>
-						{' '}
-						<h3>
-							{' '}
-							Back to <Link to='/'> home </Link>{' '}
-						</h3>{' '}
 					</div>
 				</I18nProvider>
 			</div>

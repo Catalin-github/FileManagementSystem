@@ -3,7 +3,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { findVideos, uploadVideo } from '../redux/video/action';
-
+import { setLocales } from '../redux/Language/action';
+import { I18nProvider, LOCALES } from '../i18nProvider';
+import translate from '../i18nProvider/translate';
 export class VideoPageUpload extends Component {
 	constructor(props) {
 		super(props);
@@ -38,11 +40,7 @@ export class VideoPageUpload extends Component {
 						name: videos[0].name,
 						type: videos[0].type,
 						data: item.result.split(',')[1],
-					});
-					console.log(videos[0].name);
-					console.log(videos[0].type);
-					console.log(item);
-					console.log('IMTEM ITEM');
+					}); 
 					var divId = document.createElement('div');
 					divId.id = time.toString();
 					var video = document.createElement('video');
@@ -76,23 +74,27 @@ export class VideoPageUpload extends Component {
 
 		return (
 			<div id='wrapper-video-box'>
-				<div
-					id='wrapper-video-list'
-					style={{
-						display: 'flex',
-						flexFlow: 'row wrap',
-						justifyContent: 'space-between',
-						flexDirection: 'column',
-						flexWrap: 'wrap',
-						alignContent: 'center',
-						alignItems: 'center',
-					}}>
-					<div>
-						<input type='file' onChange={this.showVideo}></input>
+				<I18nProvider locale={this.props.locales}>
+					<div
+						id='wrapper-video-list'
+						style={{
+							display: 'flex',
+							flexFlow: 'row wrap',
+							justifyContent: 'space-between',
+							flexDirection: 'column',
+							flexWrap: 'wrap',
+							alignContent: 'center',
+							alignItems: 'center',
+						}}>
+						<div style={{ marginBottom: '40px' }}>
+							<input type='file' onChange={this.showVideo}></input>
+						</div>
+						<div id={'video-box'}></div>
+						<button onClick={this.uploadVideoList}>
+							{translate('upload-theImage')}
+						</button>
 					</div>
-					<div id={'video-box'}></div>
-					<button onClick={this.uploadVideoList}>Incarca fisierele video</button>
-				</div>
+				</I18nProvider>
 			</div>
 		);
 	}
@@ -109,6 +111,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		uploadVideo: (data) => dispatch(uploadVideo(data)),
+		setLocale: (lang) => dispatch(setLocales(lang)),
 	};
 };
 export default connect(mapStateToProps, mapDispatchToProps)(VideoPageUpload);

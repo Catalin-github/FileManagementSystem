@@ -23,31 +23,14 @@ class MyAccount extends Component {
     console.log("I am in MyAccount");
     return (
       <div>
-        <I18nProvider locale={this.props.locales}>
-          <div>
-            <button onClick={() => this.props.setLocale(LOCALES.ENGLISH)}>
-              English
-            </button>{" "}
-            |{" "}
-            <button onClick={() => this.props.setLocale(LOCALES.GERMAN)}>
-              German
-            </button>{" "}
-            {""}|{" "}
-            <button onClick={() => this.props.setLocale(LOCALES.ROMANIAN)}>
-              Romanian
-            </button>{" "}
-          </div>
+        <I18nProvider locale={this.props.locales}> 
           <div>
             <UserProfile />
           </div>
-          <h1>
+          <h1 style={{position:"relative",left:"1%"}}>
             <NavLink to="/dashboard" activeStyle={{ color: "red" }}>
               <button onClick={this.props.loginRequest}>Dashboard</button>
             </NavLink>
-            </h1>
-            <h1>
-            <NavLink to="/"><button onClick={this.props.loginRequest}>You are in app so go back</button></NavLink>
-           
           </h1>
         </I18nProvider>
       </div>

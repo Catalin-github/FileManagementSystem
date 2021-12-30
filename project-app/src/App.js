@@ -23,10 +23,17 @@ import ImagePage from './components/ImagePage';
 import ImagePageUpload from './components/ImagePageUpload';
 import VideoPage from './components/VideoPage';
 import VideoPageUpload from './components/VideoPageUpload';
-
+import Background from './images/Back.jpg';
 function App() {
 	return (
-		<div style={{ width: '100%', height: '100%' }}>
+		<div
+			style={{
+				width: '100%',
+				height: '100%',
+				backgroundImage: `url(${Background})`,
+				backgroundRepeat: 'no-repeat',
+				    backgroundSize: 'cover'
+			}}>
 			<BrowserRouter>
 				<Switch>
 					<Route path='/reset-password/:id' component={ResetPassword} />
@@ -39,13 +46,16 @@ function App() {
 					<PrivateRoute exact path='/dashboard' component={Dashboard} />
 					<PrivateRoute
 						exact
-						path='/portofoliu/image'
+						path='/portofoliu/imagini'
 						component={ImagePage}
 					/>{' '}
 					<PrivateRoute exact path='/portofoliu/video' component={VideoPage} />
-					<PrivateRoute exact path='/portofoliu/upload/video' component={VideoPageUpload} />
 					<PrivateRoute
 						exact
+						path='/portofoliu/upload/video'
+						component={VideoPageUpload}
+					/>
+					<PrivateRoute
 						path='/portofoliu/upload/image'
 						component={ImagePageUpload}
 					/>

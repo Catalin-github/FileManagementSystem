@@ -25,37 +25,48 @@ class Dashboard extends Component {
 	render() {
 		return (
 			<div>
-				<h1>
-					Welcome in app, {this.props.client.data.firstName}
-					{
-						(console.log('this.props.client.user[0].firstName'),
-						console.log(this.props.client.data.firstName))
-					}
-					<div className='role'>{this.props.client.data.role}</div>
-					<fieldset>
-						<legend>
+				<I18nProvider locale={this.props.locales}>
+					<h1>
+						<div style={{ textAlign: 'center' }}>
 							{' '}
-							<Link to='/account'>
-								{' '}
-								<button onClick={this.props.loginRequest}>My Account </button>
-							</Link>
-						</legend>
-						<div
-							style={{
-								display: 'flex',
-								flexdirection: 'row',
-								justifyContent: 'space-around',
-							}}>
-							<a style={{ textDecoration: 'none' }} href='/portofoliu/imagini'>
-								Portofoliu de imagini
-							</a>
-							<a style={{ textDecoration: 'none' }} href='/portofoliu/video'>
-								Portofoliu de fisiere audio
-							</a>
+							{translate('welcome-again')}, {this.props.client.data.firstName}
 						</div>
-					</fieldset>
-				</h1>
-				<button onClick={this.props.logoutUser}> Logout</button>
+
+						<div className='role'>{this.props.client.data.role}</div>
+						<fieldset>
+							<legend>
+								{' '}
+								<Link to='/account'>
+									{' '}
+									<button onClick={this.props.loginRequest}>
+										{translate('my-account')}{' '}
+									</button>
+								</Link>
+							</legend>
+							<div
+								style={{
+									display: 'flex',
+									flexdirection: 'row',
+									justifyContent: 'space-around',
+								}}>
+								<Link
+									style={{ textDecoration: 'none' }}
+									to='/portofoliu/imagini'>
+									{translate('image-port')}
+								</Link>
+								<Link style={{ textDecoration: 'none' }} to='/portofoliu/video'>
+									{translate('file-port')}
+								</Link>
+							</div>
+						</fieldset>
+					</h1>
+					<button
+						style={{ bottom: '213px', position: 'relative', left: '1%' }}
+						onClick={this.props.logoutUser}>
+						{' '}
+						{translate('log-out')}
+					</button>
+				</I18nProvider>
 			</div>
 		);
 	}

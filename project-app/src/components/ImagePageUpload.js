@@ -3,6 +3,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { findImages, uploadImages } from '../redux/image/action';
+import { I18nProvider, LOCALES } from '../i18nProvider';
+import translate from '../i18nProvider/translate';
+import { setLocales } from '../redux/Language/action';
+
 
 export class ImagePageUpload extends Component {
 	constructor(props) {
@@ -41,11 +45,7 @@ export class ImagePageUpload extends Component {
 						type: images[0].type,
 						data: item.result.split(',')[1],
 
-					});
-					console.log(images[0].name);
-					console.log(images[0].type);
-					console.log(item);
-					console.log('IMTEM ITEM');
+					}); 
 					var divId = document.createElement('div');
 					divId.id = time.toString();
 					var image = document.createElement('img');
@@ -73,23 +73,29 @@ export class ImagePageUpload extends Component {
 		 
 			return (
 				<div id='wrapper-image-box'>
-					<div
-						id='wrapper-image-list'
-						style={{
-							display: 'flex',
-							flexFlow: 'row wrap',
-							justifyContent: 'space-between',
-							flexDirection: 'column',
-							flexWrap: 'wrap',
-							alignContent: 'center',
-							alignItems: 'center',
-						}}>
-						<div>
-							<input type='file' onChange={this.showImage}></input>
+					{' '}
+					<I18nProvider locale={this.props.locales}>
+						<div
+							id='wrapper-image-list'
+							style={{
+								display: 'flex',
+								flexFlow: 'row wrap',
+								justifyContent: 'space-between',
+								flexDirection: 'column',
+								flexWrap: 'wrap',
+								alignContent: 'center',
+								alignItems: 'center',
+							}}>
+							<div style={{ marginBottom: '40px' }}>
+								<input type='file' onChange={this.showImage}></input>
+							</div>
+							<div id={'image-box'}></div>
+							<button onClick={this.uploadImage}>
+								{' '}
+								{translate('upload-theImage')}
+							</button>
 						</div>
-						<div id={'image-box'}></div>
-						<button onClick={this.uploadImage}>Incarca imaginile</button>
-					</div>
+					</I18nProvider>
 				</div>
 			);
 		 
@@ -107,6 +113,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		uploadImages: (data) => dispatch(uploadImages(data)),
+		setLocale: (lang) => dispatch(setLocales(lang)),
 	};
 };
 export default connect(mapStateToProps, mapDispatchToProps)(ImagePageUpload);
