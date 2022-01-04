@@ -28,5 +28,6 @@ export default {
 		'upload-theImage': 'Einreichen',
 		'sa-ve': 'Speichern',
 		'can-cel': 'Abbrechen',
+		'hel-p': 'Hilfe!',
 	},
 };

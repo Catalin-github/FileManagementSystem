@@ -29,5 +29,6 @@ export default {
 		'upload-theImage': 'Incarca',
 		'sa-ve': 'Salveaza',
 		'can-cel': 'Anuleaza',
+		'hel-p':'Ajutor!'
 	},
 };

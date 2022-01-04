@@ -37,7 +37,18 @@ class Homepage extends Component {
 						<button onClick={() => this.props.setLocale(LOCALES.ROMANIAN)}>
 							Romanian
 						</button>{' '}
-					</div>
+					</div>{' '}
+					<Link
+						style={{
+							position: 'relative',
+							left: '3%',
+							bottom: '15px',
+							textDecoration: 'overline',
+							color: 'white',
+						}}
+						to='/help'>
+						{translate('hel-p')}
+					</Link>
 					<h1 style={{ textAlign: 'center' }}>{translate('welcome-home')}</h1>
 					<div
 						style={{

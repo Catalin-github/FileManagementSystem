@@ -25,9 +25,9 @@ export default {
 		'up-vid': 'Upload a file',
 		'de-lete': 'Delete',
 		'up-image': 'Upload an image',
-    "iupload-theImage":'Submit',
-    'sa-ve':'Save',
-    'can-cel':'Cancel'
-    
+		'iupload-theImage': 'Submit',
+		'sa-ve': 'Save',
+		'can-cel': 'Cancel',
+		'hel-p': 'Help!',
 	},
 };
