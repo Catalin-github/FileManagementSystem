@@ -24,6 +24,7 @@ import ImagePageUpload from './components/ImagePageUpload';
 import VideoPage from './components/VideoPage';
 import VideoPageUpload from './components/VideoPageUpload';
 import Background from './images/Back.jpg';
+import Help from './components/Help';
 function App() {
 	return (
 		<div
@@ -36,6 +37,7 @@ function App() {
 			}}>
 			<BrowserRouter>
 				<Switch>
+					<Route path='/help' component={Help}/>
 					<Route path='/reset-password/:id' component={ResetPassword} />
 					<PublicRoute exact path='/' component={Homepage} />
 					<PublicRoute path='/login' component={Login} />

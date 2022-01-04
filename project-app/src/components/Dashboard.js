@@ -32,7 +32,6 @@ class Dashboard extends Component {
 							{translate('welcome-again')}, {this.props.client.data.firstName}
 						</div>
 
-						<div className='role'>{this.props.client.data.role}</div>
 						<fieldset>
 							<legend>
 								{' '}
@@ -61,7 +60,7 @@ class Dashboard extends Component {
 						</fieldset>
 					</h1>
 					<button
-						style={{ bottom: '213px', position: 'relative', left: '1%' }}
+						style={{ bottom: '200px', position: 'relative', left: '1%' }}
 						onClick={this.props.logoutUser}>
 						{' '}
 						{translate('log-out')}
